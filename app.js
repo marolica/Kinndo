@@ -168,8 +168,15 @@
   document.getElementById('apply-close-btn').addEventListener('click', closeApply);
   document.getElementById('apply-back-btn').addEventListener('click', closeApply);
 
+  const SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbzvt5A-jmOoR1zEmWitisfNRTixACbIVsE6YyS1i2SNUqwe2_mK2lTqmVJRCj1RrDd-yA/exec';
+
   applyForm.addEventListener('submit', (e) => {
     e.preventDefault();
+    const formData = new FormData();
+    formData.append('name', document.getElementById('apply-name').value);
+    formData.append('email', document.getElementById('apply-email').value);
+    formData.append('club', document.getElementById('apply-club').value);
+    fetch(SHEET_WEBHOOK_URL, { method: 'POST', mode: 'no-cors', body: formData }).catch(() => {});
     applyFormView.hidden = true;
     applySuccessView.hidden = false;
     refreshIcons();
