@@ -1,74 +1,206 @@
-/* Kinndo design tokens (ported from the Kinndo Design System for production use) */
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+(() => {
+  const clubs = [
+    { id: 'paint', name: 'Paint & Sip', emoji: '🎨', cadence: '6 sessions · biweekly', img: 'paint-sip.png',
+      about: 'Loose brushes, full glasses, zero pressure. You guide a relaxed evening where everyone leaves with a canvas — and a few new friends.' },
+    { id: 'wine', name: 'Wine & Cheese', emoji: '🍷', cadence: '6 sessions · biweekly', img: 'dinner.png',
+      about: 'A curated table of pours and pairings. You walk the group through each tasting while the conversation flows as freely as the wine.' },
+    { id: 'cooking', name: 'Cooking Class', emoji: '👨‍🍳', cadence: '3 sessions · monthly', img: 'supper-club.png',
+      about: 'Aprons on, one great recipe, a shared meal at the end. You teach the dish you are known for — and everyone eats it together.' },
+    { id: 'reading', name: 'Reading Club', emoji: '📚', cadence: '3 sessions · monthly', img: 'book-club.png',
+      about: 'One book, one cosy room, real conversation. You set the reading and host the kind of discussion people clear their calendar for.' },
+    { id: 'games', name: 'Board Games', emoji: '🎲', cadence: '6 sessions · biweekly', img: 'backgammon.png',
+      about: 'Dice, strategy and a lot of laughing. You run game nights that turn strangers into regulars, one round at a time.' },
+    { id: 'art', name: 'Art Gallery & Museum', emoji: '🖼️', cadence: '6 sessions · biweekly', img: 'lounge.png',
+      about: 'Slow afternoons among great works. You lead small-group visits with your eye for the story behind each piece.' },
+  ];
 
-:root {
-  /* ---- Base warm neutrals ---- */
-  --sand-50:  #faf9f7;
-  --sand-100: #f6f4f1;
-  --sand-200: #ece8e2;
-  --sand-300: #ded7cd;
-  --clay-400: #b3a99d;
-  --clay-500: #8a8177;
-  --bark-600: #58514a;
-  --bark-800: #2a2724;
-  --ink-900:  #000000;
-  --white:    #ffffff;
+  const steps = [
+    { n: '01', icon: 'clipboard-list', title: 'You apply' },
+    { n: '02', icon: 'video', title: 'Webinar call' },
+    { n: '03', icon: 'palette', title: 'Design your club' },
+    { n: '04', icon: 'users-round', title: 'We find your people' },
+    { n: '05', icon: 'sparkles', title: 'Host & lead' },
+    { n: '06', icon: 'trending-up', title: 'Earn & grow' },
+  ];
 
-  /* ---- Accent (ember, the prototype default) ---- */
-  --ember-500: #c2724e;
-  --ember-100: #f3e3da;
-  --sage-500:  #6f7d63;
-  --sage-100:  #e6eae0;
+  const responsibilities = [
+    { icon: 'pen-tool', label: 'Design the experience' },
+    { icon: 'flame', label: 'Lead with passion' },
+    { icon: 'package', label: 'Provide your own materials' },
+    { icon: 'calendar-check', label: 'Show up consistently' },
+  ];
 
-  /* ---- Semantic: surfaces ---- */
-  --surface-canvas:  var(--sand-100);
-  --surface-card:    var(--white);
-  --surface-sunken:  var(--sand-200);
-  --surface-inverse: var(--bark-800);
+  const youDo = ['You create the experience', 'You share your hobby, talent or passion', 'You create community'];
 
-  /* ---- Semantic: text ---- */
-  --text-strong: var(--bark-800);
-  --text-body:   var(--bark-600);
-  --text-muted:  var(--clay-500);
-  --text-subtle: var(--clay-400);
-  --text-on-dark:var(--sand-100);
+  const kinndoDoes = [
+    { icon: 'users-round', label: 'Finds 8 participants for every session' },
+    { icon: 'map-pin', label: 'Suggests the right venues' },
+    { icon: 'calendar-check', label: 'Manages all bookings & reminders' },
+    { icon: 'headphones', label: 'Supports you the whole way' },
+  ];
 
-  /* ---- Semantic: borders ---- */
-  --border-subtle:  var(--sand-200);
-  --border-default: var(--sand-300);
+  function refreshIcons() {
+    if (window.lucide) window.lucide.createIcons();
+  }
 
-  /* ---- Semantic: actions ---- */
-  --action-primary:      var(--bark-800);
-  --action-primary-text: var(--sand-100);
-  --action-accent:       var(--ember-500);
+  function renderClubGrid() {
+    const grid = document.getElementById('club-grid');
+    grid.innerHTML = clubs.map(c => `
+      <button type="button" class="club-card" data-club-id="${c.id}">
+        <div class="club-card-img">
+          <img src="${c.img}" alt="${c.name}">
+          <span class="club-card-emoji">${c.emoji}</span>
+        </div>
+        <div class="club-card-body">
+          <div class="club-card-name">${c.name}</div>
+          <div class="club-card-foot">
+            <span class="club-card-cadence">${c.cadence}</span>
+            <span class="club-card-chevron">›</span>
+          </div>
+        </div>
+      </button>
+    `).join('');
+    grid.querySelectorAll('.club-card').forEach(btn => {
+      btn.addEventListener('click', () => openClub(btn.getAttribute('data-club-id')));
+    });
+  }
 
-  /* ---- Status ---- */
-  --status-success:    var(--sage-500);
-  --status-success-bg: var(--sage-100);
+  function renderResponsibilities() {
+    const list = document.getElementById('responsibilities-list');
+    list.innerHTML = responsibilities.map(r => `
+      <div class="responsibility-row">
+        <span class="kin-i"><i data-lucide="${r.icon}"></i></span>
+        <span class="label">${r.label}</span>
+      </div>
+    `).join('');
+  }
 
-  /* ---- Brand accent (this page) ---- */
-  --kin-accent:      var(--ember-500);
-  --kin-accent-wash: var(--ember-100);
+  function renderSteps() {
+    const grid = document.getElementById('steps-grid');
+    grid.innerHTML = steps.map(s => `
+      <div class="step-card">
+        <div class="step-card-top">
+          <span class="step-card-icon"><i data-lucide="${s.icon}"></i></span>
+          <span class="step-card-n">${s.n}</span>
+        </div>
+        <div class="step-card-title">${s.title}</div>
+      </div>
+    `).join('');
+  }
 
-  /* ---- Type ---- */
-  --font-display: 'Open Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-body:    'Nunito', ui-rounded, 'Segoe UI', system-ui, sans-serif;
+  function renderClubSelectOptions() {
+    const select = document.getElementById('apply-club');
+    const otherOpt = select.querySelector('option[value="Something else"]');
+    clubs.forEach(c => {
+      const opt = document.createElement('option');
+      opt.value = c.name;
+      opt.textContent = c.name;
+      select.insertBefore(opt, otherOpt);
+    });
+  }
 
-  /* ---- Radius ---- */
-  --radius-md:  10px;
-  --radius-lg:  14px;
-  --radius-xl:  20px;
-  --radius-2xl: 28px;
-  --radius-pill:999px;
+  // ---------- Club sheet ----------
+  const clubOverlay = document.getElementById('club-overlay');
+  let openClubData = null;
 
-  /* ---- Shadow ---- */
-  --shadow-xs:    0 1px 2px rgba(42, 39, 36, 0.05);
-  --shadow-sm:    0 1px 3px rgba(42, 39, 36, 0.06), 0 1px 2px rgba(42, 39, 36, 0.04);
-  --shadow-xl:    0 24px 56px rgba(42, 39, 36, 0.14);
-  --shadow-inset: inset 0 1px 2px rgba(42, 39, 36, 0.06);
+  function openClub(id) {
+    const club = clubs.find(c => c.id === id);
+    if (!club) return;
+    openClubData = club;
+    document.getElementById('club-sheet-img').src = club.img;
+    document.getElementById('club-sheet-img').alt = club.name;
+    document.getElementById('club-sheet-emoji').textContent = club.emoji;
+    document.getElementById('club-sheet-name').textContent = club.name;
+    document.getElementById('club-sheet-cadence').textContent = club.cadence;
+    document.getElementById('club-sheet-about').textContent = club.about;
+    document.getElementById('club-sheet-youdo').innerHTML = youDo.map(d => `
+      <div class="check-row"><span class="kin-i"><i data-lucide="check"></i></span><span class="label">${d}</span></div>
+    `).join('');
+    document.getElementById('club-sheet-kinndo-does').innerHTML = kinndoDoes.map(k => `
+      <div class="kinndo-does-row"><span class="kin-i"><i data-lucide="${k.icon}"></i></span><span class="label">${k.label}</span></div>
+    `).join('');
+    clubOverlay.hidden = false;
+    document.body.style.overflow = 'hidden';
+    updateStickyVisibility();
+    refreshIcons();
+  }
 
-  /* ---- Motion ---- */
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --dur-base: 220ms;
-  --dur-slow: 400ms;
-}
+  function closeClub() {
+    openClubData = null;
+    clubOverlay.hidden = true;
+    document.body.style.overflow = '';
+    updateStickyVisibility();
+  }
+
+  clubOverlay.addEventListener('click', (e) => { if (e.target === clubOverlay) closeClub(); });
+  document.getElementById('club-close-btn').addEventListener('click', closeClub);
+  document.getElementById('club-panel').addEventListener('click', (e) => e.stopPropagation());
+  document.getElementById('club-host-this-btn').addEventListener('click', () => {
+    const club = openClubData;
+    closeClub();
+    openApply(club ? club.name : '');
+  });
+
+  // ---------- Apply sheet ----------
+  const applyOverlay = document.getElementById('apply-overlay');
+  const applyFormView = document.getElementById('apply-form-view');
+  const applySuccessView = document.getElementById('apply-success-view');
+  const applyForm = document.getElementById('apply-form');
+
+  function openApply(preselectClub) {
+    applyFormView.hidden = false;
+    applySuccessView.hidden = true;
+    if (preselectClub) document.getElementById('apply-club').value = preselectClub;
+    applyOverlay.hidden = false;
+    document.body.style.overflow = 'hidden';
+    updateStickyVisibility();
+    refreshIcons();
+  }
+
+  function closeApply() {
+    applyOverlay.hidden = true;
+    document.body.style.overflow = '';
+    updateStickyVisibility();
+  }
+
+  applyOverlay.addEventListener('click', (e) => { if (e.target === applyOverlay) closeApply(); });
+  document.getElementById('apply-panel').addEventListener('click', (e) => e.stopPropagation());
+  document.getElementById('apply-close-btn').addEventListener('click', closeApply);
+  document.getElementById('apply-back-btn').addEventListener('click', closeApply);
+
+  applyForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    applyFormView.hidden = true;
+    applySuccessView.hidden = false;
+    refreshIcons();
+  });
+
+  document.querySelectorAll('[data-open-apply]').forEach(btn => {
+    btn.addEventListener('click', () => openApply());
+  });
+
+  // ---------- Scroll-to links ----------
+  document.querySelectorAll('[data-scroll-to]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const el = document.getElementById(btn.getAttribute('data-scroll-to'));
+      if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 8, behavior: 'smooth' });
+    });
+  });
+
+  // ---------- Sticky CTA ----------
+  const stickyCta = document.getElementById('sticky-cta');
+  function updateStickyVisibility() {
+    const sheetOpen = !applyOverlay.hidden || !clubOverlay.hidden;
+    const scrolled = window.scrollY > 320;
+    stickyCta.hidden = sheetOpen || !scrolled;
+  }
+  window.addEventListener('scroll', updateStickyVisibility, { passive: true });
+
+  // ---------- Init ----------
+  renderClubGrid();
+  renderResponsibilities();
+  renderSteps();
+  renderClubSelectOptions();
+  updateStickyVisibility();
+  refreshIcons();
+})();
