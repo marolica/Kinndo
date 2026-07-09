@@ -1,1 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Become a Host · Kinndo</title>
+<meta name="description" content="Leave your mark through what you love. Host a community with Kinndo.">
+<link rel="stylesheet" href="styles.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+<div id="kin-root">
 
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <img src="logo-wordmark-terracota-crop.png" alt="Kinndo" class="hero-logo">
+    <div class="hero-kicker">Your kind of club</div>
+  </section>
+
+  <div class="hero-slideshow-wrap">
+    <div class="hero-slideshow" id="hero-slideshow">
+      <!-- 8 slides rendered by JS -->
+    </div>
+    <div class="hero-slideshow-scrim"></div>
+  </div>
+
+  <!-- ============ WHY (THE PROBLEM) ============ -->
+  <section id="what" class="kin-section">
+    <div class="kin-overline">People are looking for connection more than ever</div>
+    <h2 class="kin-h2" style="font-size:29px; margin-top:12px;">Why is it so hard to find your people as an adult?</h2>
+
+    <div class="stat-rows" id="stat-rows"></div>
+
+    <div class="manifesto-block" style="margin-top:30px;">
+      <p class="manifesto-strong">But everything out there only solves a part of it.</p>
+      <p class="manifesto-body" style="margin-top:14px;">You can find people. <em class="text-muted-em">You can find things to do.</em></p>
+      <p class="manifesto-strong" style="margin-top:10px;">But it is difficult to find <span class="kin-accent-text">belonging.</span></p>
+    </div>
+
+    <div class="divider-rule"></div>
+
+    <p class="manifesto-strong">The problem is not people.</p>
+    <p class="manifesto-italic">It's the lack of structure to connect.</p>
+
+    <div class="feature-photo">
+      <img src="meetup.png" alt="People connecting in a Kinndo circle">
+      <div class="feature-photo-scrim"></div>
+      <div class="feature-photo-caption">Real connection needs a reason to keep showing up.</div>
+    </div>
+
+    <div class="divider-rule"></div>
+
+    <div class="equation-list" id="equation-list"></div>
+
+    <div class="not-panel" id="not-panel"></div>
+
+    <div class="manifesto-block" style="margin-top:28px;">
+      <p class="manifesto-strong">We are what we listened to,</p>
+      <p class="manifesto-body" style="margin-top:8px;">what users say they want, and what they don't know how to ask for.</p>
+    </div>
+
+    <div class="research-quote">
+      <span class="kin-i research-quote-icon"><i data-lucide="quote"></i></span>
+      <p class="research-quote-text">9 out of 10 people told us they want to belong to a group outside of work and their lifelong circle.</p>
+      <p class="research-quote-attr">Kinndo Research 2025</p>
+    </div>
+
+    <div class="reveal-card">
+      <div class="reveal-photo">
+        <img src="gallery-talk.jpg" alt="A captivated audience at a Kinndo gathering">
+      </div>
+      <div class="reveal-body">
+        <div class="reveal-we-are">We are</div>
+        <img src="logo-wordmark-terracota-crop.png" alt="Kinndo" class="reveal-logo">
+        <div class="reveal-tagline">Your kind of club</div>
+        <p class="reveal-text">A place where curiosity becomes community. Join small groups built around shared passions, discover new hobbies, and create lasting connections with people who keep showing up, not because they have to, but because they truly belong.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ KINNDO FOR HOSTS ============ -->
+  <section class="kin-section">
+    <div class="kin-overline">Kinndo for hosts</div>
+    <h2 class="kin-h2" style="font-size:31px; margin-top:12px;">Leave your mark through what you love.</h2>
+    <p class="host-lead">Imagine Airbnb, but instead of hosting a home, you host a community.</p>
+    <p class="host-sub">Create experiences around what you love. Meet incredible people, earn money doing something meaningful, and build a community people can't wait to come back to.</p>
+
+    <div style="margin-top:22px;">
+      <button type="button" class="knd-btn knd-btn--primary knd-btn--lg knd-btn--full" data-open-apply>Start your community</button>
+    </div>
+
+    <h3 class="why-heading">Why host on Kinndo?</h3>
+    <div class="why-cards" id="why-cards"></div>
+
+    <div class="final-msg-panel">
+      <h3 class="final-msg-title">Your passion can become someone's favorite place to belong.</h3>
+      <p class="final-msg-body">Whether you love cooking, running, reading, photography, wine, ceramics, or anything in between, Kinndo gives you everything you need to turn your passion into a thriving community.</p>
+      <div class="verb-chips" id="verb-chips"></div>
+      <div style="margin-top:22px;">
+        <button type="button" class="knd-btn knd-btn--accent knd-btn--lg knd-btn--full" data-open-apply>Start your community</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE FIRST COMMUNITIES ============ -->
+  <section id="clubs" class="kin-section">
+    <div class="kin-overline">The first communities</div>
+    <h2 class="kin-h2" style="font-size:27px; margin-top:10px;">Want to leave your mark on one of our first five communities?</h2>
+    <p class="kin-sub">These are the first chapters of Kinndo, the founding clubs, waiting for their founding hosts. Many more will come. But the first ones? Those will always be remembered. Tap a club and picture yourself there.</p>
+
+    <div class="club-grid" id="club-grid"></div>
+  </section>
+
+  <!-- ============ NEVER HOSTING ALONE ============ -->
+  <section class="kin-section">
+    <div class="kin-overline">What Kinndo brings</div>
+    <h2 class="kin-h2" style="font-size:28px; margin-top:10px;">You bring the passion. <span class="kin-accent-text">We engineer the belonging.</span></h2>
+    <div class="kinndo-brings-list" id="kinndo-brings-list"></div>
+    <div class="never-alone-panel">
+      <p class="never-alone-text">You're never hosting alone.</p>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="kin-section">
+    <div class="kin-overline">How it works</div>
+    <h2 class="kin-h2" style="font-size:27px; margin-top:10px;">From your passion to your people, in six steps.</h2>
+    <div class="steps-grid" id="steps-grid"></div>
+  </section>
+
+  <!-- ============ EMOTIONAL CLOSE ============ -->
+  <section class="close-section">
+    <div class="close-image">
+      <img src="candlelit-close.jpg" alt="A warm candlelit gathering">
+      <div class="close-image-scrim"></div>
+    </div>
+    <div class="close-content">
+      <h2 class="close-title">One day, someone will say their life changed at your club.</h2>
+      <p class="close-body">Real connection has become the rarest thing in the world. We exist to make it possible, and we want you to be the one who makes it real.</p>
+      <p class="close-line">Your passion is the spark. <span class="kin-accent-text">Your people are waiting.</span></p>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="cta-section">
+    <div style="margin-top:8px;">
+      <button type="button" class="knd-btn knd-btn--accent knd-btn--lg knd-btn--full" data-open-apply>Start your community</button>
+    </div>
+    <button type="button" class="cta-member-link" data-scroll-to="clubs">Not ready to host? Come find your people as a member.</button>
+
+    <div class="cta-footer">
+      <img src="logo-wordmark-white-terracota-crop.png" alt="Kinndo" style="height:26px; width:auto;">
+      <a href="https://www.instagram.com/kinndo.co/" target="_blank" rel="noopener" class="cta-instagram-link">
+        <span class="kin-i" style="color:var(--kin-accent); font-size:18px; display:inline-flex;"><i data-lucide="instagram"></i></span>
+        @kinndo.co
+      </a>
+      <div class="cta-footer-copy">Your kind of club · © Kinndo 2026</div>
+    </div>
+  </section>
+
+  <!-- ============ NN MONOGRAM ============ -->
+  <section class="monogram-section">
+    <img src="logo-monogram-terracota-crop.png" alt="Kinndo monogram" class="monogram-img">
+  </section>
+
+  <div class="kin-spacer"></div>
+
+  <!-- ============ STICKY CTA ============ -->
+  <div class="sticky-cta" id="sticky-cta" hidden>
+    <div class="sticky-cta-text">
+      <div class="sticky-cta-title">Your people are waiting.</div>
+      <div class="sticky-cta-sub">You bring the passion, we bring the belonging</div>
+    </div>
+    <button type="button" class="knd-btn knd-btn--primary knd-btn--md" data-open-apply>Start your community</button>
+  </div>
+
+  <!-- ============ CLUB ONE-PAGER SHEET ============ -->
+  <div class="sheet-overlay" id="club-overlay" hidden>
+    <div class="sheet-panel" id="club-panel">
+      <div class="club-sheet-media">
+        <img id="club-sheet-img" src="" alt="">
+        <div class="club-sheet-scrim"></div>
+        <button type="button" class="sheet-close-btn kin-i" id="club-close-btn"><i data-lucide="x"></i></button>
+        <div class="club-sheet-heading">
+          <span class="club-sheet-icon-badge kin-i" id="club-sheet-icon-badge"><i data-lucide="book-open"></i></span>
+          <span class="club-sheet-name" id="club-sheet-name"></span>
+        </div>
+      </div>
+
+      <div class="sheet-body">
+        <span class="club-sheet-cadence" id="club-sheet-cadence"></span>
+
+        <h3 class="sheet-h3">What's this club about?</h3>
+        <p class="about" id="club-sheet-about"></p>
+
+        <h3 class="sheet-h3">What you do</h3>
+        <div class="check-list" id="club-sheet-youdo"></div>
+
+        <div class="kinndo-does-card">
+          <h3>What Kinndo does</h3>
+          <div class="kinndo-does-list" id="club-sheet-kinndo-does"></div>
+          <p class="kinndo-does-more">…and much more.</p>
+        </div>
+
+        <div style="margin-top:22px;">
+          <button type="button" class="knd-btn knd-btn--primary knd-btn--lg knd-btn--full" id="club-host-this-btn">Start this community</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ APPLY SHEET ============ -->
+  <div class="sheet-overlay apply-overlay" id="apply-overlay" hidden>
+    <div class="sheet-panel" id="apply-panel">
+
+      <div class="sheet-body" id="apply-form-view">
+        <div class="apply-kicker-row">
+          <span class="kin-overline">Become a host</span>
+          <button type="button" class="sheet-close-btn kin-i" id="apply-close-btn" style="position:static; width:34px; height:34px; background:var(--surface-sunken);"><i data-lucide="x"></i></button>
+        </div>
+        <h3 class="apply-title">Let's design the experience only you could create.</h3>
+        <p class="apply-sub">Tell us a little about you. The first step is a friendly call (no pressure), just a conversation about the mark you want to leave.</p>
+
+        <form class="apply-form" id="apply-form">
+          <label class="apply-field">
+            <span class="field-label">Your name</span>
+            <input type="text" name="name" id="apply-name" placeholder="Jordan Rivera" required>
+          </label>
+          <label class="apply-field">
+            <span class="field-label">Email</span>
+            <input type="email" name="email" id="apply-email" placeholder="you@email.com" required>
+          </label>
+          <label class="apply-field">
+            <span class="field-label">What would you love to host?</span>
+            <select name="club" id="apply-club">
+              <option value="">Choose a club…</option>
+              <option value="Something else">Something else</option>
+            </select>
+          </label>
+
+          <div style="margin-top:8px;">
+            <button type="submit" class="knd-btn knd-btn--primary knd-btn--lg knd-btn--full">Submit application</button>
+          </div>
+        </form>
+        <p class="apply-fineprint">By applying you agree to a friendly hello from the Kinndo team.</p>
+      </div>
+
+      <div class="apply-success" id="apply-success-view" hidden>
+        <div class="apply-success-icon kin-i"><i data-lucide="check"></i></div>
+        <h3 class="apply-success-title">You just took the first step.</h3>
+        <p class="apply-success-body">Somewhere out there, your future community has no idea what's coming. We'll reach out within a few days to book your call and start building it together.</p>
+        <div style="margin-top:26px;">
+          <button type="button" class="knd-btn knd-btn--secondary knd-btn--lg knd-btn--full" id="apply-back-btn">Back to home</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>
