@@ -255,7 +255,7 @@ a { color: var(--kin-accent); text-decoration: none; }
   font-family: var(--font-display); font-size: 12px; font-weight: 700;
   letter-spacing: 0.16em; text-transform: uppercase; color: var(--bark-600);
 }
-.reveal-logo { height: 32px; width: auto; display: inline-block; margin: 12px 0 0; filter: brightness(0); }
+.reveal-logo { height: 30px; width: auto; display: inline-block; margin: 12px 0 0; }
 .reveal-tagline {
   font-family: var(--font-display); font-size: 12px; font-weight: 700;
   letter-spacing: 0.16em; text-transform: uppercase; color: var(--kin-accent); margin-top: 10px;
