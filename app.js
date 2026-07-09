@@ -49,7 +49,7 @@
     { icon: 'sparkles',    title: 'Leave your mark',      desc: 'Create something that makes a lasting impact on people’s lives.' },
   ];
 
-  const verbs = ['Create experiences', 'Build a community', 'Get paid', 'Leave your mark'];
+  const verbs = ['Create experiences', 'Build a community', 'Monetize your skills', 'Leave your mark'];
 
   const kinndoDoes = [
     { icon: 'users-round',   label: 'Finds 8 participants for every session' },
@@ -164,7 +164,6 @@
         <div class="club-card-body">
           <div class="club-card-name">${c.name}</div>
           <div class="club-card-foot">
-            <span class="club-card-pictureit">Picture it</span>
             <span class="club-card-arrow kin-i"><i data-lucide="arrow-right"></i></span>
           </div>
         </div>
